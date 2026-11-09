@@ -11,6 +11,7 @@ repo/
   README.md            this file
   requirements.txt     exact pinned stack (Python 3.11.8)
   .gitignore           ignores data/, .venv/, caches
+  .python-version      Python version used by every lab (3.11.8)
   lab01/
     report.md          goal, method, results, conclusions (no code)
     src/               all code for the lab
@@ -28,7 +29,7 @@ Install Python **3.11.8** (python.org installers keep old versions available), t
 python3.11 -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
 python -m pip install --upgrade pip
-pip install -r requirements.txt
+pip install -r requirements.txt   # stops on the mlflow/pyarrow pin conflict - see the note at the end
 ```
 
 On Windows, if `python3.11` is not found, use `py -3.11 -m venv .venv`.

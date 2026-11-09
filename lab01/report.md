@@ -13,7 +13,7 @@ Set up a reproducible, pinned Python environment and measure what two classic ba
 
 **Hardware.** Intel64 Family 6 Model 141 Stepping 1, GenuineIntel, 12 logical CPUs, 15.73 GB RAM, Windows 10 (AMD64). All numbers below are specific to this machine.
 
-**Data.** Breast Cancer Wisconsin (Diagnostic), loaded with `load_breast_cancer(return_X_y=True)`: 569 samples, 30 numeric features, binary label. Split 70/30, stratified, `random_state=42` -> 398 train / 171 test samples; class counts train {'0': 148, '1': 250}, test {'0': 64, '1': 107}. The dataset ships with scikit-learn, so nothing is downloaded and `data/` stays empty (it is git-ignored).
+**Data.** Breast Cancer Wisconsin (Diagnostic), loaded with `load_breast_cancer(return_X_y=True)`: 569 samples, 30 numeric features, binary label. Split 70/30, stratified, `random_state=42` -> 398 train / 171 test samples; class counts (0 = malignant / 1 = benign): train 148 / 250, test 64 / 107. The dataset ships with scikit-learn, so nothing is downloaded and `data/` stays empty (it is git-ignored).
 
 **Models.** Exactly as specified: `LogisticRegression(max_iter=1000, random_state=42)` and `RandomForestClassifier(n_estimators=100, random_state=42)`, default hyper-parameters otherwise, no feature scaling. Seeds: `random.seed(42)`, `np.random.seed(42)`, `torch.manual_seed(42)`, `torch.cuda.manual_seed_all(42)` (torch is seeded in every script except the memory-measurement processes, where importing torch would add hundreds of MB that these scikit-learn models never use).
 
@@ -44,6 +44,10 @@ Memory is reported two ways: **peak RSS** (the whole process: interpreter + NumP
 | Training delta (MB) | 11.92 | 11.92 |
 | Peak RSS during inference (MB) | 97.5 | 105.3 |
 | Inference delta (MB) | 3.73 | 12.02 |
+
+`results/model.joblib` (written with `joblib.dump`, both fitted models in one file): 291,674 B (284.84 KB). Per-model sizes in the table come from the individual dumps `results/model_logistic_regression.joblib` and `results/model_random_forest.joblib`.
+
+*Observation:* on this machine Logistic Regression takes longer to train (231 ms) than the 100-tree Random Forest (108 ms). The reason is the unscaled data: lbfgs never converges and runs all 1000 iterations (see the note below), while the forest builds shallow trees quickly. The simpler model is not automatically the cheaper one to train - it has to be measured.
 
 *Note:* with the prescribed `max_iter=1000` and unscaled features, the lbfgs solver of Logistic Regression stops at the iteration limit and scikit-learn raises a `ConvergenceWarning`. The model was kept exactly as specified; its accuracy is still 0.9415. Standardising the features would let it converge in far fewer iterations (and likely train faster) - a fix for later labs, not a change to this baseline.
 
@@ -95,11 +99,7 @@ Fits **Cloud, Edge** without restriction: median latency 2.136 ms, model 284.1 K
 
 ## 6. Reproducibility
 
-From the repository root, with the virtual environment active:
-
-```
-python lab01/src/run_all.py
-```
+From the repository root, with the virtual environment active, run `python lab01/src/run_all.py`.
 
 This regenerates every file in `lab01/results/` and this report. All randomness is seeded with 42; timings and memory depend on the machine and on background load, so small differences between runs are expected - the medians and the deployment decisions are stable.
 

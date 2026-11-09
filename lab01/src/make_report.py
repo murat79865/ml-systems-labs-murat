@@ -86,7 +86,9 @@ def main() -> None:
         f"`load_breast_cancer(return_X_y=True)`: {split['n_samples']} samples, "
         f"{split['n_features']} numeric features, binary label. Split 70/30, stratified, "
         f"`random_state=42` -> {split['train_size']} train / {split['test_size']} test samples; "
-        f"class counts train {split['train_class_counts']}, test {split['test_class_counts']}. "
+        f"class counts (0 = malignant / 1 = benign): train {split['train_class_counts']['0']} / "
+        f"{split['train_class_counts']['1']}, test {split['test_class_counts']['0']} / "
+        f"{split['test_class_counts']['1']}. "
         "The dataset ships with scikit-learn, so nothing is downloaded and `data/` stays empty "
         "(it is git-ignored).\n")
     add("**Models.** Exactly as specified: `LogisticRegression(max_iter=1000, random_state=42)` and "
@@ -119,11 +121,21 @@ def main() -> None:
     add(f"| Inference latency, 1 sample, median of 100 (ms) | {lr['infer_ms']:.4f} | {rf['infer_ms']:.4f} |")
     add(f"| Inference latency, p95 (ms) | {lr['infer_p95_ms']:.4f} | {rf['infer_p95_ms']:.4f} |")
     add(f"| Model size (joblib) | {fmt_bytes(lr['size_bytes'])} | {fmt_bytes(rf['size_bytes'])} |")
+    bundle = (RESULTS_DIR / "model.joblib").stat().st_size
     add(f"| Peak RSS during training (MB) | {lr['train_peak_mb']:.1f} | {rf['train_peak_mb']:.1f} |")
     add(f"| Training delta (MB) | {lr['train_delta_mb']:.2f} | {rf['train_delta_mb']:.2f} |")
     add(f"| Peak RSS during inference (MB) | {lr['infer_peak_mb']:.1f} | {rf['infer_peak_mb']:.1f} |")
     add(f"| Inference delta (MB) | {lr['infer_delta_mb']:.2f} | {rf['infer_delta_mb']:.2f} |")
     add("")
+    add(f"`results/model.joblib` (written with `joblib.dump`, both fitted models in one file): "
+        f"{fmt_bytes(bundle)}. Per-model sizes in the table come from the individual dumps "
+        f"`results/model_logistic_regression.joblib` and `results/model_random_forest.joblib`.\n")
+    if lr["train_ms"] > rf["train_ms"]:
+        add(f"*Observation:* on this machine Logistic Regression takes longer to train "
+            f"({lr['train_ms']:.0f} ms) than the 100-tree Random Forest ({rf['train_ms']:.0f} ms). "
+            f"The reason is the unscaled data: lbfgs never converges and runs all 1000 iterations "
+            f"(see the note below), while the forest builds shallow trees quickly. The simpler model "
+            f"is not automatically the cheaper one to train - it has to be measured.\n")
     if not lr["converged"]:
         add(f"*Note:* with the prescribed `max_iter=1000` and unscaled features, the lbfgs solver of "
             "Logistic Regression stops at the iteration limit and scikit-learn raises a "
@@ -223,10 +235,8 @@ def main() -> None:
         "and as delta; otherwise one model's allocations or the import cost get charged to the other.\n")
 
     add("## 6. Reproducibility\n")
-    add("From the repository root, with the virtual environment active:\n")
-    add("```")
-    add("python lab01/src/run_all.py")
-    add("```\n")
+    add("From the repository root, with the virtual environment active, run "
+        "`python lab01/src/run_all.py`.\n")
     add("This regenerates every file in `lab01/results/` and this report. All randomness is seeded with 42; "
         "timings and memory depend on the machine and on background load, so small differences between runs "
         "are expected - the medians and the deployment decisions are stable.\n")
