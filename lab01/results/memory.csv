@@ -1,0 +1,9 @@
+model,phase,tool,baseline_mb,peak_mb,delta_mb
+logistic_regression,train,memory_profiler,94.73,105.07,10.35
+logistic_regression,train,psutil,92.83,104.75,11.92
+logistic_regression,inference,memory_profiler,93.82,97.47,3.65
+logistic_regression,inference,psutil,92.82,96.55,3.73
+random_forest,train,memory_profiler,93.67,104.95,11.28
+random_forest,train,psutil,92.58,104.50,11.92
+random_forest,inference,memory_profiler,93.28,105.30,12.02
+random_forest,inference,psutil,92.93,104.92,11.99

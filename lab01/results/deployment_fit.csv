@@ -1,0 +1,9 @@
+model,tier,memory_ok,latency_ok,size_ok,fits
+logistic_regression,Cloud,Yes,Yes,Yes,Yes
+logistic_regression,Edge,Yes,Yes,Yes,Yes
+logistic_regression,Mobile,Partly,Yes,Yes,Partly (larger devices only)
+logistic_regression,TinyML,No,Yes,Yes,No
+random_forest,Cloud,Yes,Yes,Yes,Yes
+random_forest,Edge,Yes,Yes,Yes,Yes
+random_forest,Mobile,Partly,Yes,Yes,Partly (larger devices only)
+random_forest,TinyML,No,Yes,No,No

@@ -1,0 +1,3 @@
+model,test_accuracy,train_time_median_ms,inference_latency_median_ms,inference_latency_p95_ms,model_size_bytes,model_size_kb,train_peak_rss_mb,train_delta_mb,inference_peak_rss_mb,inference_delta_mb
+logistic_regression,0.9415,231.029,0.0513,0.0628,1055,1.03,105.07,11.92,97.47,3.73
+random_forest,0.9357,107.827,2.1361,2.7812,290889,284.07,104.95,11.92,105.30,12.02

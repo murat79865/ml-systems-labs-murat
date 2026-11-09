@@ -1,0 +1,35 @@
+Generated : 2026-11-09T19:22:25
+Python    : 3.11.8 (CPython) [required 3.11.8: OK]
+Executable: C:\Users\Murat\Desktop\KUMAR\ml-systems-labs\.venv\Scripts\python.exe
+Platform  : Windows-10-10.0.19045-SP0
+In venv   : True
+
+package               pinned                    installed                 status
+--------------------------------------------------------------------------------
+numpy                 1.26.4                    1.26.4                    OK
+pandas                2.2.2                     2.2.2                     OK
+scikit-learn          1.5.0                     1.5.0                     OK
+scipy                 1.13.1                    1.13.1                    OK
+matplotlib            3.9.0                     3.9.0                     OK
+seaborn               0.13.2                    0.13.2                    OK
+torch                 2.3.1                     2.3.1                     OK
+torchvision           0.18.1                    0.18.1                    OK
+torchinfo             1.8.0                     1.8.0                     OK
+thop                  0.1.1.post2209072238      0.1.1-2209072238          OK
+onnx                  1.16.1                    1.16.1                    OK
+onnxruntime           1.18.0                    1.18.0                    OK
+mlflow                2.14.1                    2.14.1                    OK
+memory-profiler       0.61.0                    0.61.0                    OK
+psutil                5.9.8                     5.9.8                     OK
+codecarbon            2.4.2                     2.4.2                     OK
+fastapi               0.111.0                   0.111.0                   OK
+uvicorn               0.30.1                    0.30.1                    OK
+pytest                8.2.2                     8.2.2                     OK
+httpx                 0.27.0                    0.27.0                    OK
+locust                2.28.0                    2.28.0                    OK
+requests              2.32.3                    2.32.3                    OK
+pyarrow               16.1.0                    16.1.0                    OK
+joblib                1.4.2                     1.4.2                     OK
+tqdm                  4.66.4                    4.66.4                    OK
+--------------------------------------------------------------------------------
+Packages checked: 25, problems: 0

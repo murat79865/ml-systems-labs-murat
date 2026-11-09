@@ -1,0 +1,8 @@
+{
+  "os": "Windows 10",
+  "machine": "AMD64",
+  "cpu": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+  "logical_cpus": 12,
+  "python": "3.11.8",
+  "total_ram_gb": 15.73
+}

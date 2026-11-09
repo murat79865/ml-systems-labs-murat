@@ -1,0 +1,3 @@
+model,structure,parameters,float32_bytes
+logistic_regression,30 weights + 1 bias,31,124
+random_forest,"100 trees, 3138 nodes, 1619 leaves, median depth 7",3138,37856

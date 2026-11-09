@@ -1,0 +1,23 @@
+# Datasets (scripts download them if missing)
+data/
+
+# Virtual environment
+.venv/
+venv/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Tool outputs we do not version
+mlruns/
+emissions.csv
+.codecarbon*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
