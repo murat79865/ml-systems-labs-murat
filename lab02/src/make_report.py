@@ -208,7 +208,9 @@ def main() -> None:
     txt = ("**The analytic gradients pass the check for both widths**" if all_trained_pass else
            "**Warning: the trained-network check did not meet the 9-of-10 rule for every width**")
     txt += (f" ({', '.join(r['passed'] + '/10 for W = ' + r['width'] for r in trained)}). When a weight "
-            "has a normal-sized gradient the two methods agree to 9-12 significant digits.")
+            "has a normal-sized gradient the two methods agree to many significant digits (largest relative "
+            "error among passing weights: "
+            + f"{max(float(r['rel_error']) for r in gc if r['point'] == 'trained' and r['pass'] == 'True'):.1e}).")
     if fails:
         f0 = fails[0]
         txt += (f" The weight that misses the threshold ({f0['param']}{f0['index']}, W = {f0['width']}) has "
@@ -311,28 +313,46 @@ def main() -> None:
     ratios = [float(r["backward_to_forward_ratio"]) for r in tim]
     big = max(tim, key=lambda r: float(r["backward_mflop"]))
     small = min(tim, key=lambda r: float(r["backward_mflop"]))
-    dom = "backward" if all(x > 1 for x in ratios) else ("forward" if all(x < 1 for x in ratios) else "mixed")
-    if dom == "backward":
+
+    def us(r, k):
+        return float(r[k])
+
+    mm_ratios = [us(r, "backward_matmul_median_us") / us(r, "forward_matmul_median_us") for r in tim]
+    n_bwd = sum(x > 1 for x in ratios)
+    exceptions = [r for r in tim if float(r["backward_to_forward_ratio"]) <= 1]
+
+    if n_bwd == len(tim):
         para = (f"**The backward pass dominates** in every configuration ({min(ratios):.2f}x to "
                 f"{max(ratios):.2f}x the forward time).")
-    elif dom == "forward":
-        para = (f"In this run the forward pass took longer in every configuration "
-            f"({min(ratios):.2f}x to {max(ratios):.2f}x).")
     else:
-        para = f"The backward/forward ratio ranges from {min(ratios):.2f} to {max(ratios):.2f}."
-    add(para + " The reason is matrix multiplication. The forward pass needs 3 matmuls (`X W1`, `A1 W2`, "
-        "`A2 W3`); the backward pass needs 5, because every layer must produce a weight gradient "
-        "(`A^T dZ`) and - except the first layer - also pass the error back (`dZ W^T`). Counting "
-        f"2·m·k·n FLOPs per matmul, backward does {small['flop_ratio_bwd_fwd']}x the work of forward for "
-        f"W = {small['width']} and {big['flop_ratio_bwd_fwd']}x for W = {big['width']} (the W x W layer "
-        "appears twice in backward). The measured ratio follows this FLOP ratio more closely as the "
-        f"matrices grow: for W = {big['width']} with batch {big['batch'].split()[0]} the matmuls are "
-        f"{float(big['backward_matmul_share']):.0%} of the backward time and the measured ratio is "
-        f"{big['backward_to_forward_ratio']} (FLOP ratio {big['flop_ratio_bwd_fwd']}). For tiny matrices "
-        f"(W = {small['width']}, batch {small['batch'].split()[0]}) each NumPy call costs a few microseconds "
-        "of fixed overhead regardless of size, and the forward pass also runs `exp` and divisions for "
-        "the softmax, so the two passes take similar time. Doubling the batch or the width therefore "
-        "mainly increases matmul time, and backward - with more and larger matmuls - grows fastest.\n")
+        para = (f"**The backward pass is the slower one in {n_bwd} of {len(tim)} configurations** "
+                f"(backward/forward ratio {min(ratios):.2f} to {max(ratios):.2f}).")
+    para += (" The link is matrix multiplication. The forward pass needs 3 matmuls (`X W1`, `A1 W2`, "
+             "`A2 W3`); the backward pass needs 5, because every layer must produce a weight gradient "
+             "(`A^T dZ`) and - except the first layer - also pass the error back (`dZ W^T`). Counting "
+             f"2·m·k·n FLOPs per matmul, backward does {small['flop_ratio_bwd_fwd']}x the work of forward "
+             f"for W = {small['width']} and {big['flop_ratio_bwd_fwd']}x for W = {big['width']} (the W x W "
+             "layer appears twice in backward). Timing the matmuls alone confirms it: the backward matmuls "
+             + (f"took {min(mm_ratios):.2f}x to {max(mm_ratios):.2f}x as long as the forward matmuls in "
+                "every configuration." if all(x > 1 for x in mm_ratios) else
+                f"took {min(mm_ratios):.2f}x to {max(mm_ratios):.2f}x as long as the forward matmuls.")
+             + f" In the largest configuration (W = {big['width']}, batch {big['batch'].split()[0]}) the "
+             f"matmuls are {float(big['backward_matmul_share']):.0%} of the backward time and the measured "
+             f"ratio is {big['backward_to_forward_ratio']} (FLOP ratio {big['flop_ratio_bwd_fwd']}).")
+    for r in exceptions:
+        f_mm = us(r, "forward_matmul_median_us")
+        f_tot = us(r, "forward_median_us")
+        para += (f" The exception is W = {r['width']} with batch {r['batch'].split()[0]} (ratio "
+                 f"{r['backward_to_forward_ratio']}): its forward pass took {f_tot:.0f} us, but only "
+                 f"{f_mm:.0f} us of that were matmuls. With just {r['width']} hidden units the matrix "
+                 "products are so small that the element-wise work - the softmax (`exp`, row maximum and "
+                 "division over N x 10 values), the bias additions and the ReLUs - costs more than the "
+                 "matmuls, and that work sits mostly in the forward pass.")
+    para += (" For the small batch of 32, each NumPy call also has a fixed overhead of a few microseconds "
+             "regardless of size, which pulls the two passes closer together. So the backward pass is more "
+             "expensive exactly when matrix multiplication dominates the step - wider layers and larger "
+             "batches - and that is the regime where training cost matters.\n")
+    add(para)
 
     # ------------------------------------------------------------------------------------------
     add("## 4. Conclusions\n")
@@ -340,8 +360,8 @@ def main() -> None:
     add(f"1. **The hand-derived backpropagation is correct.** The numerical check passes on the trained "
         f"networks ({tr}) and the all-parameter relative error is about 1e-10. The untrained check also "
         "showed that a finite-difference test has a precision floor: with tiny N(0, 0.01) gradients the "
-        "relative error is dominated by float64 rounding, so a gradient check must be read together with "
-        "the gradient's size.\n")
+        "relative error is dominated by float64 rounding (and occasionally a ReLU kink), so a gradient check "
+        "must be read together with the gradient's size.\n")
     best_stuck = (f"With N(0, 0.01) initial weights only lr = {max(LEARNING_RATES):g} learned at all "
                   f"(best test accuracy {best['final_test_acc']} with W = {best['width']}); "
                   "the smaller learning rates stayed at ln(10) and chance accuracy for all 50 epochs."
@@ -352,11 +372,22 @@ def main() -> None:
         f"well.** {best_stuck} The wider network escaped the plateau earlier and reached a much higher "
         f"accuracy. With standard deviation 0.1 all settings improve (best {sup_best['final_test_acc']}), so "
         "the small-weight start, not the model, limited the main runs.\n")
-    add(f"3. **Training time is dominated by matrix multiplication, and the backward pass is the more "
-        f"expensive half.** Backward needs 5 matmuls against 3 in forward ({small['flop_ratio_bwd_fwd']}x to "
-        f"{big['flop_ratio_bwd_fwd']}x the FLOPs); the measured backward/forward ratio was "
-        f"{min(ratios):.2f}-{max(ratios):.2f} and approaches the FLOP ratio as the matrices grow, while "
-        "for very small matrices fixed per-call overhead hides the difference.\n")
+    if n_bwd == len(tim):
+        add(f"3. **Training time is dominated by matrix multiplication, and the backward pass is the more "
+            f"expensive half.** Backward needs 5 matmuls against 3 in forward ({small['flop_ratio_bwd_fwd']}x "
+            f"to {big['flop_ratio_bwd_fwd']}x the FLOPs); the measured backward/forward ratio was "
+            f"{min(ratios):.2f}-{max(ratios):.2f}, and the backward matmuls alone took "
+            f"{min(mm_ratios):.2f}-{max(mm_ratios):.2f}x the forward ones.\n")
+    else:
+        ex = exceptions[0]
+        add(f"3. **Matrix multiplication makes the backward pass the expensive half - when matmuls dominate "
+            f"the step.** Backward needs 5 matmuls against 3 in forward ({small['flop_ratio_bwd_fwd']}x to "
+            f"{big['flop_ratio_bwd_fwd']}x the FLOPs), and the backward matmuls alone took "
+            f"{min(mm_ratios):.2f}-{max(mm_ratios):.2f}x the forward ones. The whole backward pass was slower "
+            f"in {n_bwd} of {len(tim)} configurations; for W = {ex['width']} with batch "
+            f"{ex['batch'].split()[0]} the forward softmax and other element-wise work outweighed the tiny "
+            f"matmuls (ratio {ex['backward_to_forward_ratio']}). Timing has to be measured per component "
+            "- the FLOP count alone does not predict it for small layers.\n")
 
     add("## 5. Reproducibility\n")
     add("From the repository root with the virtual environment active, run `python lab02/src/run_all.py`. "
