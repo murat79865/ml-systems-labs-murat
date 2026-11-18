@@ -1,0 +1,2 @@
+uninterrupted_test_acc,resumed_test_acc,max_abs_diff_train_loss,max_abs_diff_val_loss,same_mlflow_run,mlflow_run_id
+0.89190,0.89190,0.00000,0.00000,True,405ee6eb0aef46759414410e2ac6b5b1

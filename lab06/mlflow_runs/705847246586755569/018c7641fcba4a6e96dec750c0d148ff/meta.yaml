@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Murat/Desktop/KUMAR/ml-systems-labs/lab06/mlflow_runs/705847246586755569/018c7641fcba4a6e96dec750c0d148ff/artifacts
+end_time: 1795018831021
+entry_point_name: ''
+experiment_id: '705847246586755569'
+lifecycle_stage: active
+run_id: 018c7641fcba4a6e96dec750c0d148ff
+run_name: sgd-cosine
+run_uuid: 018c7641fcba4a6e96dec750c0d148ff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1795018673900
+status: 3
+tags: []
+user_id: Murat

@@ -1,0 +1,118 @@
+{
+  "run_name": "resume-test-continued",
+  "status": "completed",
+  "mlflow_run_id": "405ee6eb0aef46759414410e2ac6b5b1",
+  "experiment": "lab06-resume",
+  "checkpoint": "C:\\Users\\Murat\\Desktop\\KUMAR\\ml-systems-labs\\lab06\\checkpoints\\resume-test-continued\\last.pt",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5294916465715929,
+      "train_acc": 0.8132,
+      "val_loss": 0.4384312021255493,
+      "val_acc": 0.848,
+      "lr": 0.001,
+      "epoch_seconds": 16.092232900002273,
+      "data_wait_seconds": 9.010095599747729,
+      "throughput_samples_per_s": 3417.7979116864653,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.35088886445652356,
+      "train_acc": 0.8754181818181819,
+      "val_loss": 0.35339159164428713,
+      "val_acc": 0.87,
+      "lr": 0.001,
+      "epoch_seconds": 16.792074400000274,
+      "data_wait_seconds": 9.495745800173609,
+      "throughput_samples_per_s": 3275.354711386885,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.304945602033355,
+      "train_acc": 0.8904909090909091,
+      "val_loss": 0.3233511999130249,
+      "val_acc": 0.8878,
+      "lr": 0.001,
+      "epoch_seconds": 16.447912200004794,
+      "data_wait_seconds": 9.326989700406557,
+      "throughput_samples_per_s": 3343.889445128724,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.2793943972479213,
+      "train_acc": 0.9005272727272727,
+      "val_loss": 0.3115067529678345,
+      "val_acc": 0.8854,
+      "lr": 0.001,
+      "epoch_seconds": 15.62936809999519,
+      "data_wait_seconds": 8.62654359996668,
+      "throughput_samples_per_s": 3519.016229454403,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.26248178944370965,
+      "train_acc": 0.9055090909090909,
+      "val_loss": 0.2861927013874054,
+      "val_acc": 0.8982,
+      "lr": 0.001,
+      "epoch_seconds": 16.970401300000958,
+      "data_wait_seconds": 9.408310299739242,
+      "throughput_samples_per_s": 3240.936912905937,
+      "optimizer_steps": 430
+    }
+  ],
+  "test_loss": 0.29740798029899596,
+  "test_acc": 0.8919,
+  "train_seconds_this_session": 32.59976939999615,
+  "mean_throughput_samples_per_s": 3379.97657118017,
+  "peak_rss_mb": 445.1875,
+  "baseline_rss_mb": 377.0,
+  "peak_minus_baseline_mb": 68.1875,
+  "config": {
+    "seed": 42,
+    "run_name": "resume-test-continued",
+    "epochs": 5,
+    "device": "cpu",
+    "data": {
+      "dataset": "FashionMNIST",
+      "root": "data",
+      "mean": 0.286,
+      "std": 0.353,
+      "train_size": 55000,
+      "val_size": 5000,
+      "batch_size": 128,
+      "num_workers": 0
+    },
+    "model": {
+      "name": "cnn"
+    },
+    "optimizer": {
+      "name": "adam",
+      "lr": 0.001,
+      "momentum": 0.9,
+      "weight_decay": 0.0
+    },
+    "scheduler": {
+      "name": "none",
+      "step_size": 4,
+      "gamma": 0.1,
+      "plateau_factor": 0.5,
+      "plateau_patience": 1
+    },
+    "grad_accum_steps": 1,
+    "checkpoint": {
+      "dir": "lab06/checkpoints",
+      "resume_from": "C:/Users/Murat/Desktop/KUMAR/ml-systems-labs/lab06/checkpoints/resume-test/last.pt",
+      "stop_after_epoch": null
+    },
+    "mlflow": {
+      "tracking_dir": "lab06/mlflow_runs",
+      "experiment": "lab06-resume"
+    }
+  }
+}

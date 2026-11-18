@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Murat/Desktop/KUMAR/ml-systems-labs/lab06/mlflow_runs/394719450216870312/405ee6eb0aef46759414410e2ac6b5b1/artifacts
+end_time: 1795019930211
+entry_point_name: ''
+experiment_id: '394719450216870312'
+lifecycle_stage: active
+run_id: 405ee6eb0aef46759414410e2ac6b5b1
+run_name: resume-test
+run_uuid: 405ee6eb0aef46759414410e2ac6b5b1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1795019834769
+status: 3
+tags: []
+user_id: Murat

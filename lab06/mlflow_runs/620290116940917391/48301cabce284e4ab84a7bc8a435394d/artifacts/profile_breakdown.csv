@@ -1,0 +1,6 @@
+phase,profiler_cpu_ms,profiler_share,wall_ms,wall_share,calls
+data_loading,11412.6,0.6369,11416.2,0.6357,431
+forward,3005.9,0.1677,3017.6,0.1680,430
+backward,2926.7,0.1633,2940.3,0.1637,430
+optimizer_step,573.8,0.0320,584.8,0.0326,430
+other (loop overhead),,,156836.0,,

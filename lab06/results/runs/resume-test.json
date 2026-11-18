@@ -1,0 +1,92 @@
+{
+  "run_name": "resume-test",
+  "status": "interrupted",
+  "mlflow_run_id": "405ee6eb0aef46759414410e2ac6b5b1",
+  "experiment": "lab06-resume",
+  "checkpoint": "C:\\Users\\Murat\\Desktop\\KUMAR\\ml-systems-labs\\lab06\\checkpoints\\resume-test\\last.pt",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5294916465715929,
+      "train_acc": 0.8132,
+      "val_loss": 0.4384312021255493,
+      "val_acc": 0.848,
+      "lr": 0.001,
+      "epoch_seconds": 16.092232900002273,
+      "data_wait_seconds": 9.010095599747729,
+      "throughput_samples_per_s": 3417.7979116864653,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.35088886445652356,
+      "train_acc": 0.8754181818181819,
+      "val_loss": 0.35339159164428713,
+      "val_acc": 0.87,
+      "lr": 0.001,
+      "epoch_seconds": 16.792074400000274,
+      "data_wait_seconds": 9.495745800173609,
+      "throughput_samples_per_s": 3275.354711386885,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.304945602033355,
+      "train_acc": 0.8904909090909091,
+      "val_loss": 0.3233511999130249,
+      "val_acc": 0.8878,
+      "lr": 0.001,
+      "epoch_seconds": 16.447912200004794,
+      "data_wait_seconds": 9.326989700406557,
+      "throughput_samples_per_s": 3343.889445128724,
+      "optimizer_steps": 430
+    }
+  ],
+  "train_seconds_this_session": 49.33221950000734,
+  "mean_throughput_samples_per_s": 3345.6806894006913,
+  "peak_rss_mb": 449.203125,
+  "baseline_rss_mb": 376.84375,
+  "peak_minus_baseline_mb": 72.359375,
+  "config": {
+    "seed": 42,
+    "run_name": "resume-test",
+    "epochs": 5,
+    "device": "cpu",
+    "data": {
+      "dataset": "FashionMNIST",
+      "root": "data",
+      "mean": 0.286,
+      "std": 0.353,
+      "train_size": 55000,
+      "val_size": 5000,
+      "batch_size": 128,
+      "num_workers": 0
+    },
+    "model": {
+      "name": "cnn"
+    },
+    "optimizer": {
+      "name": "adam",
+      "lr": 0.001,
+      "momentum": 0.9,
+      "weight_decay": 0.0
+    },
+    "scheduler": {
+      "name": "none",
+      "step_size": 4,
+      "gamma": 0.1,
+      "plateau_factor": 0.5,
+      "plateau_patience": 1
+    },
+    "grad_accum_steps": 1,
+    "checkpoint": {
+      "dir": "lab06/checkpoints",
+      "resume_from": null,
+      "stop_after_epoch": 3
+    },
+    "mlflow": {
+      "tracking_dir": "lab06/mlflow_runs",
+      "experiment": "lab06-resume"
+    }
+  }
+}

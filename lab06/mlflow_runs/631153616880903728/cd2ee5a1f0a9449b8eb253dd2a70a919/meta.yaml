@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Murat/Desktop/KUMAR/ml-systems-labs/lab06/mlflow_runs/631153616880903728/cd2ee5a1f0a9449b8eb253dd2a70a919/artifacts
+end_time: 1795019610111
+entry_point_name: ''
+experiment_id: '631153616880903728'
+lifecycle_stage: active
+run_id: cd2ee5a1f0a9449b8eb253dd2a70a919
+run_name: accum-bs256
+run_uuid: cd2ee5a1f0a9449b8eb253dd2a70a919
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1795019518606
+status: 3
+tags: []
+user_id: Murat

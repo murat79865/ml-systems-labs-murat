@@ -1,0 +1,16 @@
+{
+  "epoch_wall_s": 18.72485470000538,
+  "steps": 430,
+  "profiler_ms": {
+    "data_loading": 11702.178,
+    "forward": 3229.702,
+    "backward": 3153.515,
+    "optimizer_step": 594.56
+  },
+  "wall_ms": {
+    "data_loading": 11706.264900276437,
+    "forward": 3242.6525000773836,
+    "backward": 3167.7322000614367,
+    "optimizer_step": 605.9114996460266
+  }
+}

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Murat/Desktop/KUMAR/ml-systems-labs/lab06/mlflow_runs/705847246586755569/28cb51bdfdcb46938b933d6b50a79ce0/artifacts
+end_time: 1795019166746
+entry_point_name: ''
+experiment_id: '705847246586755569'
+lifecycle_stage: active
+run_id: 28cb51bdfdcb46938b933d6b50a79ce0
+run_name: adam-step
+run_uuid: 28cb51bdfdcb46938b933d6b50a79ce0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1795019002413
+status: 3
+tags: []
+user_id: Murat

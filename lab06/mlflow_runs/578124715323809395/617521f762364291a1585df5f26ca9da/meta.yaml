@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Murat/Desktop/KUMAR/ml-systems-labs/lab06/mlflow_runs/578124715323809395/617521f762364291a1585df5f26ca9da/artifacts
+end_time: 1795017474376
+entry_point_name: ''
+experiment_id: '578124715323809395'
+lifecycle_stage: active
+run_id: 617521f762364291a1585df5f26ca9da
+run_name: base-cnn-adam
+run_uuid: 617521f762364291a1585df5f26ca9da
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1795017395101
+status: 3
+tags: []
+user_id: Murat

@@ -1,0 +1,178 @@
+{
+  "run_name": "adam-plateau",
+  "status": "completed",
+  "mlflow_run_id": "62c5007bef8b4ad1aa775b6c46ef518b",
+  "experiment": "lab06-schedules",
+  "checkpoint": "C:\\Users\\Murat\\Desktop\\KUMAR\\ml-systems-labs\\lab06\\checkpoints\\adam-plateau\\last.pt",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5294916465715929,
+      "train_acc": 0.8132,
+      "val_loss": 0.4384312021255493,
+      "val_acc": 0.848,
+      "lr": 0.001,
+      "epoch_seconds": 14.635458399978234,
+      "data_wait_seconds": 8.338193099654745,
+      "throughput_samples_per_s": 3757.996401402897,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.35088886445652356,
+      "train_acc": 0.8754181818181819,
+      "val_loss": 0.35339159164428713,
+      "val_acc": 0.87,
+      "lr": 0.001,
+      "epoch_seconds": 15.195387700019637,
+      "data_wait_seconds": 8.538906000176212,
+      "throughput_samples_per_s": 3619.519362439757,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.304945602033355,
+      "train_acc": 0.8904909090909091,
+      "val_loss": 0.3233511999130249,
+      "val_acc": 0.8878,
+      "lr": 0.001,
+      "epoch_seconds": 14.887694599980023,
+      "data_wait_seconds": 8.435905900230864,
+      "throughput_samples_per_s": 3694.3261853365666,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.2793943972479213,
+      "train_acc": 0.9005272727272727,
+      "val_loss": 0.3115067529678345,
+      "val_acc": 0.8854,
+      "lr": 0.001,
+      "epoch_seconds": 15.160948100005044,
+      "data_wait_seconds": 8.592838500189828,
+      "throughput_samples_per_s": 3627.741460310236,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.26248178944370965,
+      "train_acc": 0.9055090909090909,
+      "val_loss": 0.2861927013874054,
+      "val_acc": 0.8982,
+      "lr": 0.001,
+      "epoch_seconds": 15.355295999994269,
+      "data_wait_seconds": 8.751610400271602,
+      "throughput_samples_per_s": 3581.826100911407,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.24668072780045597,
+      "train_acc": 0.9118,
+      "val_loss": 0.27019356083869933,
+      "val_acc": 0.903,
+      "lr": 0.001,
+      "epoch_seconds": 15.62732299999334,
+      "data_wait_seconds": 8.941623999678995,
+      "throughput_samples_per_s": 3519.4767523537744,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.23505370688871904,
+      "train_acc": 0.9161090909090909,
+      "val_loss": 0.26746371183395384,
+      "val_acc": 0.9076,
+      "lr": 0.001,
+      "epoch_seconds": 15.511744499992346,
+      "data_wait_seconds": 8.843476399430074,
+      "throughput_samples_per_s": 3545.700485205074,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.2248419519446113,
+      "train_acc": 0.9195272727272727,
+      "val_loss": 0.2626746973991394,
+      "val_acc": 0.9028,
+      "lr": 0.001,
+      "epoch_seconds": 15.208864299987908,
+      "data_wait_seconds": 8.639851800369797,
+      "throughput_samples_per_s": 3616.312100308747,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.21748768017508766,
+      "train_acc": 0.9207090909090909,
+      "val_loss": 0.25224219102859496,
+      "val_acc": 0.9062,
+      "lr": 0.001,
+      "epoch_seconds": 17.26619529997697,
+      "data_wait_seconds": 9.485551599995233,
+      "throughput_samples_per_s": 3185.4151447061045,
+      "optimizer_steps": 430
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.20792760487253015,
+      "train_acc": 0.9257090909090909,
+      "val_loss": 0.2614191692829132,
+      "val_acc": 0.9022,
+      "lr": 0.001,
+      "epoch_seconds": 17.130257600016193,
+      "data_wait_seconds": 9.22220680056489,
+      "throughput_samples_per_s": 3210.6931071455697,
+      "optimizer_steps": 430
+    }
+  ],
+  "test_loss": 0.2799641662597656,
+  "test_acc": 0.8966,
+  "train_seconds_this_session": 155.97916949994396,
+  "mean_throughput_samples_per_s": 3535.9007100120134,
+  "peak_rss_mb": 448.203125,
+  "baseline_rss_mb": 375.96484375,
+  "peak_minus_baseline_mb": 72.23828125,
+  "config": {
+    "seed": 42,
+    "run_name": "adam-plateau",
+    "epochs": 10,
+    "device": "cpu",
+    "data": {
+      "dataset": "FashionMNIST",
+      "root": "data",
+      "mean": 0.286,
+      "std": 0.353,
+      "train_size": 55000,
+      "val_size": 5000,
+      "batch_size": 128,
+      "num_workers": 0
+    },
+    "model": {
+      "name": "cnn"
+    },
+    "optimizer": {
+      "name": "adam",
+      "lr": 0.001,
+      "momentum": 0.9,
+      "weight_decay": 0.0
+    },
+    "scheduler": {
+      "name": "plateau",
+      "step_size": 4,
+      "gamma": 0.1,
+      "plateau_factor": 0.5,
+      "plateau_patience": 1
+    },
+    "grad_accum_steps": 1,
+    "checkpoint": {
+      "dir": "lab06/checkpoints",
+      "resume_from": null,
+      "stop_after_epoch": null
+    },
+    "mlflow": {
+      "tracking_dir": "lab06/mlflow_runs",
+      "experiment": "lab06-schedules"
+    }
+  }
+}

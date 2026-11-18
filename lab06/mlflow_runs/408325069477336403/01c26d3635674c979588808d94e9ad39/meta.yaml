@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Murat/Desktop/KUMAR/ml-systems-labs/lab06/mlflow_runs/408325069477336403/01c26d3635674c979588808d94e9ad39/artifacts
+end_time: 1795018410834
+entry_point_name: ''
+experiment_id: '408325069477336403'
+lifecycle_stage: active
+run_id: 01c26d3635674c979588808d94e9ad39
+run_name: bs-256
+run_uuid: 01c26d3635674c979588808d94e9ad39
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1795018325714
+status: 3
+tags: []
+user_id: Murat

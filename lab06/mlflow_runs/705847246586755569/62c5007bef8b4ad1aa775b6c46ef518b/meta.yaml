@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Murat/Desktop/KUMAR/ml-systems-labs/lab06/mlflow_runs/705847246586755569/62c5007bef8b4ad1aa775b6c46ef518b/artifacts
+end_time: 1795019511815
+entry_point_name: ''
+experiment_id: '705847246586755569'
+lifecycle_stage: active
+run_id: 62c5007bef8b4ad1aa775b6c46ef518b
+run_name: adam-plateau
+run_uuid: 62c5007bef8b4ad1aa775b6c46ef518b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1795019342328
+status: 3
+tags: []
+user_id: Murat

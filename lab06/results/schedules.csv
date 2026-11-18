@@ -1,0 +1,7 @@
+optimizer,scheduler,run,final_lr,best_val_acc,final_val_acc,final_train_loss,test_acc,train_seconds
+"SGD+momentum 0.9, lr 0.05","StepLR(4, 0.1)",sgd-step,0.00050,0.91320,0.91220,0.17679,0.91150,146.06778
+"SGD+momentum 0.9, lr 0.05",CosineAnnealingLR(T_max=10),sgd-cosine,0.00122,0.91720,0.91620,0.15683,0.91400,144.41628
+"SGD+momentum 0.9, lr 0.05","ReduceLROnPlateau(0.5, patience 1)",sgd-plateau,0.02500,0.91220,0.91220,0.17459,0.90670,148.65243
+"Adam, lr 0.001","StepLR(4, 0.1)",adam-step,0.00001,0.90500,0.90340,0.23072,0.89910,151.39171
+"Adam, lr 0.001",CosineAnnealingLR(T_max=10),adam-cosine,0.00002,0.90980,0.90580,0.21385,0.90160,152.77449
+"Adam, lr 0.001","ReduceLROnPlateau(0.5, patience 1)",adam-plateau,0.00100,0.90760,0.90220,0.20793,0.89660,155.97917

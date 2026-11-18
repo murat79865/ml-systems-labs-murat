@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Murat/Desktop/KUMAR/ml-systems-labs/lab06/mlflow_runs/705847246586755569/ef9b025325054384a937e68ed3b6d037/artifacts
+end_time: 1795018997416
+entry_point_name: ''
+experiment_id: '705847246586755569'
+lifecycle_stage: active
+run_id: ef9b025325054384a937e68ed3b6d037
+run_name: sgd-plateau
+run_uuid: ef9b025325054384a937e68ed3b6d037
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1795018835892
+status: 3
+tags: []
+user_id: Murat

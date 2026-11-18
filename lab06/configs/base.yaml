@@ -1,0 +1,44 @@
+# Lab 6 - single config object for the training pipeline (best Lab 3 model: the CNN).
+# Every study starts from this file and changes only the keys it studies
+# (python lab06/src/train.py --config lab06/configs/base.yaml --set data.batch_size=256 ...).
+seed: 42
+run_name: base-cnn-adam
+epochs: 5
+device: cpu
+
+data:
+  dataset: FashionMNIST
+  root: data                # git-ignored folder at the repository root
+  mean: 0.2860
+  std: 0.3530
+  train_size: 55000
+  val_size: 5000
+  batch_size: 128           # micro-batch size fed to the model
+  num_workers: 0
+
+model:
+  name: cnn                 # Conv(1,16,3)-ReLU-Pool-Conv(16,32,3)-ReLU-Pool-Linear(1568,10), 20,490 params
+
+optimizer:
+  name: adam                # adam | sgd
+  lr: 0.001
+  momentum: 0.9             # used by sgd
+  weight_decay: 0.0
+
+scheduler:
+  name: none                # none | step | cosine | plateau
+  step_size: 4              # StepLR
+  gamma: 0.1                # StepLR
+  plateau_factor: 0.5       # ReduceLROnPlateau (monitors validation loss)
+  plateau_patience: 1
+
+grad_accum_steps: 1         # >1 emulates a batch of batch_size * grad_accum_steps
+
+checkpoint:
+  dir: lab06/checkpoints    # git-ignored by the run (large, regenerated); the final one is logged to MLflow
+  resume_from: null         # path of a checkpoint to resume from
+  stop_after_epoch: null    # simulate an interruption after this epoch
+
+mlflow:
+  tracking_dir: lab06/mlflow_runs
+  experiment: lab06-base

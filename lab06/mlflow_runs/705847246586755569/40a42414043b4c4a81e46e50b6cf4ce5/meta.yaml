@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Murat/Desktop/KUMAR/ml-systems-labs/lab06/mlflow_runs/705847246586755569/40a42414043b4c4a81e46e50b6cf4ce5/artifacts
+end_time: 1795019337457
+entry_point_name: ''
+experiment_id: '705847246586755569'
+lifecycle_stage: active
+run_id: 40a42414043b4c4a81e46e50b6cf4ce5
+run_name: adam-cosine
+run_uuid: 40a42414043b4c4a81e46e50b6cf4ce5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1795019171676
+status: 3
+tags: []
+user_id: Murat

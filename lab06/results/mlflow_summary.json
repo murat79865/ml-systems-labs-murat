@@ -1,0 +1,21 @@
+{
+  "experiments": [
+    "lab06-base",
+    "lab06-batch-size",
+    "lab06-grad-accum",
+    "lab06-num-workers",
+    "lab06-profile",
+    "lab06-resume",
+    "lab06-schedules"
+  ],
+  "runs": 22,
+  "runs_per_experiment": {
+    "lab06-base": 1,
+    "lab06-batch-size": 5,
+    "lab06-grad-accum": 3,
+    "lab06-num-workers": 5,
+    "lab06-profile": 1,
+    "lab06-resume": 1,
+    "lab06-schedules": 6
+  }
+}

@@ -1,0 +1,6 @@
+epoch,segment,train_loss_uninterrupted,train_loss_resumed,val_loss_uninterrupted,val_loss_resumed,val_acc_uninterrupted,val_acc_resumed,abs_diff_train_loss,abs_diff_val_loss
+1,before interruption,0.52949,0.52949,0.43843,0.43843,0.84800,0.84800,0.00000,0.00000
+2,before interruption,0.35089,0.35089,0.35339,0.35339,0.87000,0.87000,0.00000,0.00000
+3,before interruption,0.30495,0.30495,0.32335,0.32335,0.88780,0.88780,0.00000,0.00000
+4,after resume,0.27939,0.27939,0.31151,0.31151,0.88540,0.88540,0.00000,0.00000
+5,after resume,0.26248,0.26248,0.28619,0.28619,0.89820,0.89820,0.00000,0.00000

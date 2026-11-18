@@ -1,0 +1,32 @@
+torch.profiler, one training epoch (430 steps, batch 128, num_workers 0), sorted by CPU total time
+
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                           data_loading         0.05%       9.230ms        63.69%       11.413s      26.479ms           431  
+enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        41.92%        7.511s        63.64%       11.403s      26.458ms           431  
+                                                forward         0.76%     136.378ms        16.77%        3.006s       6.990ms           430  
+                                               backward         0.83%     147.953ms        16.33%        2.927s       6.806ms           430  
+                                       aten::max_pool2d         0.04%       7.468ms         8.70%        1.559s       1.813ms           860  
+                          aten::max_pool2d_with_indices         8.68%        1.556s         8.68%        1.556s       1.809ms           860  
+autograd::engine::evaluate_function: ConvolutionBack...         0.14%      24.783ms         7.81%        1.400s       1.628ms           860  
+                                   ConvolutionBackward0         0.03%       5.504ms         7.67%        1.375s       1.599ms           860  
+                             aten::convolution_backward         7.57%        1.357s         7.64%        1.370s       1.593ms           860  
+                                               aten::to         1.52%     272.256ms         6.42%        1.151s       2.906us        396180  
+                                           aten::conv2d         0.02%       4.461ms         5.43%     972.585ms       1.131ms           860  
+                                      aten::convolution         0.09%      15.377ms         5.40%     968.124ms       1.126ms           860  
+                                         aten::_to_copy         3.43%     614.756ms         5.37%     962.022ms       5.487us        175320  
+     autograd::engine::evaluate_function: ReluBackward0         0.05%       9.729ms         5.34%     957.306ms       1.113ms           860  
+                                     aten::_convolution         0.05%       9.645ms         5.32%     952.747ms       1.108ms           860  
+                                          ReluBackward0         0.04%       6.442ms         5.29%     947.577ms       1.102ms           860  
+                               aten::mkldnn_convolution         5.21%     933.576ms         5.26%     943.102ms       1.097ms           860  
+                               aten::threshold_backward         5.25%     941.135ms         5.25%     941.135ms       1.094ms           860  
+                                              aten::div         2.27%     406.052ms         4.00%     717.144ms      12.455us         57580  
+                                               aten::eq         1.54%     275.058ms         3.43%     614.365ms      11.170us         55000  
+                                         optimizer_step         0.81%     145.329ms         3.20%     573.774ms       1.334ms           430  
+                                            aten::copy_         2.33%     418.093ms         2.33%     418.093ms       1.463us        285750  
+                                              aten::any         1.54%     276.143ms         2.32%     416.078ms       7.565us         55000  
+                               Optimizer.step#Adam.step         0.95%     170.387ms         2.31%     414.555ms     964.081us           430  
+                                           aten::select         1.86%     333.968ms         1.88%     336.666ms       3.061us        110000  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 17.919s

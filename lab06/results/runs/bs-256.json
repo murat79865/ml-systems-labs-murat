@@ -1,0 +1,118 @@
+{
+  "run_name": "bs-256",
+  "status": "completed",
+  "mlflow_run_id": "01c26d3635674c979588808d94e9ad39",
+  "experiment": "lab06-batch-size",
+  "checkpoint": "C:\\Users\\Murat\\Desktop\\KUMAR\\ml-systems-labs\\lab06\\checkpoints\\bs-256\\last.pt",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.6175080826065757,
+      "train_acc": 0.7860363636363636,
+      "val_loss": 0.42044040808677674,
+      "val_acc": 0.855,
+      "lr": 0.001,
+      "epoch_seconds": 15.02356120001059,
+      "data_wait_seconds": 8.13990929996362,
+      "throughput_samples_per_s": 3660.9162945973976,
+      "optimizer_steps": 215
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.3818990465901115,
+      "train_acc": 0.8641272727272727,
+      "val_loss": 0.3644366608142853,
+      "val_acc": 0.8696,
+      "lr": 0.001,
+      "epoch_seconds": 15.207163799990667,
+      "data_wait_seconds": 8.234958600194659,
+      "throughput_samples_per_s": 3616.7164846369155,
+      "optimizer_steps": 215
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.338535217033733,
+      "train_acc": 0.8800909090909091,
+      "val_loss": 0.36747083997726443,
+      "val_acc": 0.8694,
+      "lr": 0.001,
+      "epoch_seconds": 15.344192799995653,
+      "data_wait_seconds": 8.275487299746601,
+      "throughput_samples_per_s": 3584.417943446043,
+      "optimizer_steps": 215
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.31138179606957866,
+      "train_acc": 0.8896727272727273,
+      "val_loss": 0.3151158339500427,
+      "val_acc": 0.8864,
+      "lr": 0.001,
+      "epoch_seconds": 15.373030799994012,
+      "data_wait_seconds": 8.28036760003306,
+      "throughput_samples_per_s": 3577.693996425313,
+      "optimizer_steps": 215
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.293629916342822,
+      "train_acc": 0.8950363636363636,
+      "val_loss": 0.3090352120399475,
+      "val_acc": 0.8916,
+      "lr": 0.001,
+      "epoch_seconds": 16.042117200006032,
+      "data_wait_seconds": 8.77411350022885,
+      "throughput_samples_per_s": 3428.475139177971,
+      "optimizer_steps": 215
+    }
+  ],
+  "test_loss": 0.31277315917015075,
+  "test_acc": 0.8889,
+  "train_seconds_this_session": 76.99006579999696,
+  "mean_throughput_samples_per_s": 3573.643971656728,
+  "peak_rss_mb": 454.65625,
+  "baseline_rss_mb": 376.34765625,
+  "peak_minus_baseline_mb": 78.30859375,
+  "config": {
+    "seed": 42,
+    "run_name": "bs-256",
+    "epochs": 5,
+    "device": "cpu",
+    "data": {
+      "dataset": "FashionMNIST",
+      "root": "data",
+      "mean": 0.286,
+      "std": 0.353,
+      "train_size": 55000,
+      "val_size": 5000,
+      "batch_size": 256,
+      "num_workers": 0
+    },
+    "model": {
+      "name": "cnn"
+    },
+    "optimizer": {
+      "name": "adam",
+      "lr": 0.001,
+      "momentum": 0.9,
+      "weight_decay": 0.0
+    },
+    "scheduler": {
+      "name": "none",
+      "step_size": 4,
+      "gamma": 0.1,
+      "plateau_factor": 0.5,
+      "plateau_patience": 1
+    },
+    "grad_accum_steps": 1,
+    "checkpoint": {
+      "dir": "lab06/checkpoints",
+      "resume_from": null,
+      "stop_after_epoch": null
+    },
+    "mlflow": {
+      "tracking_dir": "lab06/mlflow_runs",
+      "experiment": "lab06-batch-size"
+    }
+  }
+}
