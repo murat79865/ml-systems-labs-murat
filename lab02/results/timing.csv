@@ -1,0 +1,5 @@
+width,batch,forward_median_us,forward_p95_us,loss_median_us,backward_median_us,backward_p95_us,backward_to_forward_ratio,forward_matmul_median_us,backward_matmul_median_us,forward_matmul_share,backward_matmul_share,forward_matmuls,backward_matmuls,forward_mflop,backward_mflop,flop_ratio_bwd_fwd,runs,warmup
+16,32,23.00,24.60,12.25,25.00,26.60,1.09,5.30,9.40,0.23,0.38,3,5,0.092,0.119,1.29,100,1
+16,1257 (full train),387.00,423.70,152.30,338.00,519.90,0.87,96.10,175.45,0.25,0.52,3,5,3.620,4.666,1.29,100,1
+64,32,34.00,35.40,12.40,43.80,45.20,1.29,13.20,24.30,0.39,0.55,3,5,0.565,0.868,1.54,100,1
+64,1257 (full train),686.40,741.90,155.25,888.25,1156.50,1.29,287.55,546.90,0.42,0.62,3,5,22.204,34.110,1.54,100,1

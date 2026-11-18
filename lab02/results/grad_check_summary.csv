@@ -1,0 +1,5 @@
+point,width,batch,loss,weights_checked,passed,required,criterion_9_of_10,weights_total,weights_nonzero_grad,weights_zero_grad_excluded,median_abs_grad_sampled,max_rel_error,max_abs_error,fails_relu_kink,fails_noise_floor,all_params_checked,all_params_vector_rel_error
+trained,16,32,1.9301,10,10,9,met,1440,947,493,8.23e-02,1.03e-07,1.44e-11,0,0,1482,6.82e-11
+trained,64,32,0.2297,10,10,9,met,8832,6751,2081,1.41e-03,3.26e-07,3.57e-12,0,0,8970,2.49e-10
+init,16,32,2.3026,10,6,9,not met,1440,896,544,2.43e-05,6.97e-03,2.46e-07,1,3,1482,1.00e-03
+init,64,32,2.3026,10,7,9,not met,8832,5946,2886,2.41e-05,1.69e-05,2.98e-11,0,3,8970,2.76e-04

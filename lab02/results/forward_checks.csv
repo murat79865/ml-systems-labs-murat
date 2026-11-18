@@ -1,0 +1,7 @@
+width,input,input_shape,output_shape,shape_ok,max_abs_row_sum_minus_1,rows_sum_to_1,initial_loss,ln10,abs_diff_from_ln10
+16,batch of 32 (train),"(32, 64)","(32, 10)",True,2.220e-16,True,2.3026,2.3026,1.00e-05
+16,full train set,"(1257, 64)","(1257, 10)",True,4.441e-16,True,2.3026,2.3026,4.29e-07
+16,full test set,"(540, 64)","(540, 10)",True,2.220e-16,True,2.3026,2.3026,7.29e-07
+64,batch of 32 (train),"(32, 64)","(32, 10)",True,3.331e-16,True,2.3026,2.3026,3.80e-05
+64,full train set,"(1257, 64)","(1257, 10)",True,3.331e-16,True,2.3026,2.3026,7.40e-06
+64,full test set,"(540, 64)","(540, 10)",True,4.441e-16,True,2.3026,2.3026,8.25e-06

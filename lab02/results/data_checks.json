@@ -1,0 +1,40 @@
+{
+  "dataset": "sklearn.datasets.load_digits (8x8 images, 10 classes)",
+  "n_samples": 1797,
+  "n_features": 64,
+  "scaling": "X / 16",
+  "x_min": 0.0,
+  "x_max": 1.0,
+  "one_hot_shape_train": [
+    1257,
+    10
+  ],
+  "one_hot_rows_sum_to_1": true,
+  "split": "70/30 stratified, random_state=42",
+  "train_size": 1257,
+  "test_size": 540,
+  "train_class_counts": [
+    124,
+    127,
+    124,
+    128,
+    127,
+    127,
+    127,
+    125,
+    122,
+    126
+  ],
+  "test_class_counts": [
+    54,
+    55,
+    53,
+    55,
+    54,
+    55,
+    54,
+    54,
+    52,
+    54
+  ]
+}

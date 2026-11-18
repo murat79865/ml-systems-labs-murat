@@ -1,0 +1,9 @@
+width,layer,in_out,activation,weight_shape,bias_shape,parameters
+16,hidden 1,64 -> 16,ReLU,"(64, 16)","(16,)",1040
+16,hidden 2,16 -> 16,ReLU,"(16, 16)","(16,)",272
+16,output,16 -> 10,softmax,"(16, 10)","(10,)",170
+16,total,,,,,1482
+64,hidden 1,64 -> 64,ReLU,"(64, 64)","(64,)",4160
+64,hidden 2,64 -> 64,ReLU,"(64, 64)","(64,)",4160
+64,output,64 -> 10,softmax,"(64, 10)","(10,)",650
+64,total,,,,,8970
