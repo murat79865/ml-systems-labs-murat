@@ -1,0 +1,4 @@
+type,model,layer,hand_formula,hand_flops,thop_flops_default,thop_default_minus_hand,thop_flops_no_fastpath,thop_flops_no_fastpath_plus_mha_rule
+Linear,mlp,Linear 784->256,2 x 784 x 256,401408,401408,0,,
+Conv2d,cnn,"Conv2d 16->32, 3x3, out 14x14",2 x 3 x 3 x 16 x 32 x 14 x 14,1806336,1806336,0,,
+Attention,attention,"Transformer encoder layer 1 (seq 16, d 64, d_ff 128)",QKV + QK^T + AV + out-proj + FFN,1114112,0,-1114112,540672,1130496

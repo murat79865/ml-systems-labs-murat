@@ -1,0 +1,4 @@
+model,epochs,optimizer,lr,batch_size,final_val_acc,test_loss,test_acc,train_seconds
+mlp,5,Adam,0.001,128,0.8830,0.3325,0.8811,47.4
+cnn,5,Adam,0.001,128,0.8982,0.2974,0.8919,74.1
+attention,5,Adam,0.001,128,0.8512,0.4554,0.8437,89.0

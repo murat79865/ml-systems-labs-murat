@@ -1,0 +1,4 @@
+model,hand_flops,thop_macs,thop_flops_2x_macs,thop_over_hand,torchinfo_mult_adds,torchinfo_flops_2x,thop_flops_no_fastpath,thop_flops_no_fastpath_plus_mha_rule,no_fastpath_over_hand,plus_mha_rule_over_hand
+mlp,469504,234752,469504,1.0,235146,470292,,,,
+cnn,2063488,1031744,2063488,1.0,1050570,2101140,,,,
+attention,2329856,50816,101632,0.0436,3850,7700,1182976,2362624,0.5077,1.0141

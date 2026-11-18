@@ -1,0 +1,102 @@
+{
+  "mlp": {
+    "default": {
+      "0": 0.0,
+      "1": 200704.0,
+      "2": 0.0,
+      "3": 32768.0,
+      "4": 0.0,
+      "5": 1280.0
+    }
+  },
+  "cnn": {
+    "default": {
+      "0": 112896.0,
+      "1": 0.0,
+      "2": 0.0,
+      "3": 903168.0,
+      "4": 0.0,
+      "5": 0.0,
+      "6": 0.0,
+      "7": 15680.0
+    }
+  },
+  "attention": {
+    "default": {
+      "proj": 50176.0,
+      "encoder": 0.0,
+      "encoder.layers": 0.0,
+      "encoder.layers.0": 0.0,
+      "encoder.layers.0.self_attn": 0.0,
+      "encoder.layers.0.self_attn.out_proj": 0.0,
+      "encoder.layers.0.linear1": 0.0,
+      "encoder.layers.0.dropout": 0.0,
+      "encoder.layers.0.linear2": 0.0,
+      "encoder.layers.0.norm1": 0.0,
+      "encoder.layers.0.norm2": 0.0,
+      "encoder.layers.0.dropout1": 0.0,
+      "encoder.layers.0.dropout2": 0.0,
+      "encoder.layers.1": 0.0,
+      "encoder.layers.1.self_attn": 0.0,
+      "encoder.layers.1.self_attn.out_proj": 0.0,
+      "encoder.layers.1.linear1": 0.0,
+      "encoder.layers.1.dropout": 0.0,
+      "encoder.layers.1.linear2": 0.0,
+      "encoder.layers.1.norm1": 0.0,
+      "encoder.layers.1.norm2": 0.0,
+      "encoder.layers.1.dropout1": 0.0,
+      "encoder.layers.1.dropout2": 0.0,
+      "head": 640.0
+    },
+    "no_fastpath": {
+      "proj": 50176.0,
+      "encoder": 540672.0,
+      "encoder.layers": 540672.0,
+      "encoder.layers.0": 270336.0,
+      "encoder.layers.0.self_attn": 0.0,
+      "encoder.layers.0.self_attn.out_proj": 0.0,
+      "encoder.layers.0.linear1": 131072.0,
+      "encoder.layers.0.dropout": 0.0,
+      "encoder.layers.0.linear2": 131072.0,
+      "encoder.layers.0.norm1": 4096.0,
+      "encoder.layers.0.norm2": 4096.0,
+      "encoder.layers.0.dropout1": 0.0,
+      "encoder.layers.0.dropout2": 0.0,
+      "encoder.layers.1": 270336.0,
+      "encoder.layers.1.self_attn": 0.0,
+      "encoder.layers.1.self_attn.out_proj": 0.0,
+      "encoder.layers.1.linear1": 131072.0,
+      "encoder.layers.1.dropout": 0.0,
+      "encoder.layers.1.linear2": 131072.0,
+      "encoder.layers.1.norm1": 4096.0,
+      "encoder.layers.1.norm2": 4096.0,
+      "encoder.layers.1.dropout1": 0.0,
+      "encoder.layers.1.dropout2": 0.0,
+      "head": 640.0
+    },
+    "no_fastpath_plus_mha_rule": {
+      "proj": 50176.0,
+      "encoder": 1130496.0,
+      "encoder.layers": 1130496.0,
+      "encoder.layers.0": 565248.0,
+      "encoder.layers.0.self_attn": 294912.0,
+      "encoder.layers.0.linear1": 131072.0,
+      "encoder.layers.0.dropout": 0.0,
+      "encoder.layers.0.linear2": 131072.0,
+      "encoder.layers.0.norm1": 4096.0,
+      "encoder.layers.0.norm2": 4096.0,
+      "encoder.layers.0.dropout1": 0.0,
+      "encoder.layers.0.dropout2": 0.0,
+      "encoder.layers.1": 565248.0,
+      "encoder.layers.1.self_attn": 294912.0,
+      "encoder.layers.1.linear1": 131072.0,
+      "encoder.layers.1.dropout": 0.0,
+      "encoder.layers.1.linear2": 131072.0,
+      "encoder.layers.1.norm1": 4096.0,
+      "encoder.layers.1.norm2": 4096.0,
+      "encoder.layers.1.dropout1": 0.0,
+      "encoder.layers.1.dropout2": 0.0,
+      "head": 640.0
+    }
+  }
+}

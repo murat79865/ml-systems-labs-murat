@@ -1,0 +1,4 @@
+model,torchinfo_total_params,torchinfo_trainable_params,hand_params,sum_numel,hand_matches_torchinfo,in_target_100k_150k
+mlp,235146,235146,235146,235146,True,False
+cnn,20490,20490,20490,20490,True,False
+attention,70794,70794,70794,70794,True,False

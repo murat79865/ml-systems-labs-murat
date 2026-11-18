@@ -1,0 +1,4 @@
+model,test_acc,params,hand_flops_per_image,flops_per_param,latency_b1_ms,latency_b128_ms,latency_b128_ms_per_image,acc_per_100k_params
+mlp,0.8811,235146,469504,2.00,0.0644,0.386,0.00301,0.375
+cnn,0.8919,20490,2063488,100.71,0.1714,7.131,0.05571,4.353
+attention,0.8437,70794,2329856,32.91,0.5581,7.207,0.05631,1.192

@@ -1,0 +1,12 @@
+{
+  "os": "Windows 10",
+  "machine": "AMD64",
+  "cpu": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+  "logical_cpus": 12,
+  "python": "3.11.8",
+  "torch": "2.3.1+cpu",
+  "torch_threads": 6,
+  "device": "cpu",
+  "cuda_available": false,
+  "total_ram_gb": 15.73
+}

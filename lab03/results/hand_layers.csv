@@ -1,0 +1,11 @@
+model,layer,type,params,flops
+mlp,Linear 784->256,Linear,200960,401408
+mlp,Linear 256->128,Linear,32896,65536
+mlp,Linear 128->10,Linear,1290,2560
+cnn,"Conv2d 1->16, 3x3, out 28x28",Conv2d,160,225792
+cnn,"Conv2d 16->32, 3x3, out 14x14",Conv2d,4640,1806336
+cnn,Linear 1568->10,Linear,15690,31360
+attention,Patch projection Linear 49->64 (x16 tokens),Linear,3200,100352
+attention,Transformer encoder layer 1,Attention,33472,1114112
+attention,Transformer encoder layer 2,Attention,33472,1114112
+attention,Linear 64->10 (after mean pool),Linear,650,1280
