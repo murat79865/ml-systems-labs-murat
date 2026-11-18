@@ -1,0 +1,122 @@
+{
+  "raw_rows": 48842,
+  "train_rows_before_dedup": 34189,
+  "duplicates_dropped_from_train": 24,
+  "train_rows": 34165,
+  "test_rows": 14653,
+  "test_exact_duplicates_kept": 5,
+  "fitted": {
+    "numeric_median": {
+      "age": 37.0,
+      "fnlwgt": 178272.0,
+      "education-num": 10.0,
+      "capital-gain": 0.0,
+      "capital-loss": 0.0,
+      "hours-per-week": 40.0
+    },
+    "categorical_mode": {
+      "workclass": "Private",
+      "education": "HS-grad",
+      "marital-status": "Married-civ-spouse",
+      "occupation": "Prof-specialty",
+      "relationship": "Husband",
+      "race": "White",
+      "sex": "Male",
+      "native-country": "United-States"
+    },
+    "clip_lower": {
+      "age": 17.0,
+      "fnlwgt": 27035.2,
+      "education-num": 3.0,
+      "capital-gain": 0.0,
+      "capital-loss": 0.0,
+      "hours-per-week": 8.0
+    },
+    "clip_upper": {
+      "age": 74.0,
+      "fnlwgt": 509629.0,
+      "education-num": 16.0,
+      "capital-gain": 15024.0,
+      "capital-loss": 1980.0,
+      "hours-per-week": 80.0
+    },
+    "n_rows_fit": 34165
+  },
+  "train": {
+    "rows": 34165,
+    "imputed_categorical": {
+      "workclass": 1923,
+      "education": 0,
+      "marital-status": 0,
+      "occupation": 1933,
+      "relationship": 0,
+      "race": 0,
+      "sex": 0,
+      "native-country": 590
+    },
+    "imputed_numeric": {
+      "age": 0,
+      "fnlwgt": 0,
+      "education-num": 0,
+      "capital-gain": 0,
+      "capital-loss": 0,
+      "hours-per-week": 0
+    },
+    "clipped_low": {
+      "age": 0,
+      "fnlwgt": 342,
+      "education-num": 240,
+      "capital-gain": 0,
+      "capital-loss": 0,
+      "hours-per-week": 311
+    },
+    "clipped_high": {
+      "age": 302,
+      "fnlwgt": 341,
+      "education-num": 0,
+      "capital-gain": 255,
+      "capital-loss": 340,
+      "hours-per-week": 226
+    },
+    "label_positive_rate": 0.23936777403775794
+  },
+  "test": {
+    "rows": 14653,
+    "imputed_categorical": {
+      "workclass": 873,
+      "education": 0,
+      "marital-status": 0,
+      "occupation": 873,
+      "relationship": 0,
+      "race": 0,
+      "sex": 0,
+      "native-country": 267
+    },
+    "imputed_numeric": {
+      "age": 0,
+      "fnlwgt": 0,
+      "education-num": 0,
+      "capital-gain": 0,
+      "capital-loss": 0,
+      "hours-per-week": 0
+    },
+    "clipped_low": {
+      "age": 0,
+      "fnlwgt": 127,
+      "education-num": 88,
+      "capital-gain": 0,
+      "capital-loss": 0,
+      "hours-per-week": 144
+    },
+    "clipped_high": {
+      "age": 143,
+      "fnlwgt": 145,
+      "education-num": 0,
+      "capital-gain": 136,
+      "capital-loss": 151,
+      "hours-per-week": 92
+    },
+    "label_positive_rate": 0.23926840919948134
+  },
+  "encoded_feature_count": 107
+}

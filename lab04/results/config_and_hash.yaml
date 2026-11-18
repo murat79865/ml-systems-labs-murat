@@ -1,0 +1,116 @@
+config:
+  seed: 42
+  dataset:
+    source: openml
+    name: adult
+    version: 2
+    expected_rows: 48842
+    expected_columns: 15
+    target_raw: class
+    target: income
+    positive_label: '>50K'
+  schema:
+    null_token: '?'
+    types:
+      age: int
+      workclass: category
+      fnlwgt: int
+      education: category
+      education-num: int
+      marital-status: category
+      occupation: category
+      relationship: category
+      race: category
+      sex: category
+      capital-gain: int
+      capital-loss: int
+      hours-per-week: int
+      native-country: category
+      income: category
+    ranges:
+      age:
+      - 17
+      - 90
+      hours-per-week:
+      - 1
+      - 99
+      capital-gain:
+      - 0
+      - 99999
+      capital-loss:
+      - 0
+      - 4356
+  split:
+    test_size: 0.3
+    stratify: income
+    random_state: 42
+  cleaning:
+    numeric_impute: median
+    categorical_impute: most_frequent
+    clip_quantiles:
+    - 0.01
+    - 0.99
+    drop_exact_duplicates: train_only
+  features:
+    derived:
+      capital_net: capital-gain - capital-loss
+      hours_per_age: hours-per-week / (age - 16)
+  model:
+    type: LogisticRegression
+    max_iter: 1000
+    cv_folds: 5
+  label_audit:
+    sample_size: 50
+raw_snapshot:
+  file: data/lab04/raw/adult_raw.csv
+  sha256: 8f970e20c9991979ec0a9ccb65ce97543d678709a2c6f8ef23f7fb32f40adddc
+  rows: 48842
+processed:
+  train:
+    file: data/lab04/processed/train.csv
+    rows: 34165
+    columns:
+    - age
+    - fnlwgt
+    - education-num
+    - capital-gain
+    - capital-loss
+    - hours-per-week
+    - capital_net
+    - hours_per_age
+    - workclass
+    - education
+    - marital-status
+    - occupation
+    - relationship
+    - race
+    - sex
+    - native-country
+    - income
+    sha256: 82b9bcb4dde83e362287ddbfca370b5631c5ba073d95a993cf838e26a6faf569
+  test:
+    file: data/lab04/processed/test.csv
+    rows: 14653
+    columns:
+    - age
+    - fnlwgt
+    - education-num
+    - capital-gain
+    - capital-loss
+    - hours-per-week
+    - capital_net
+    - hours_per_age
+    - workclass
+    - education
+    - marital-status
+    - occupation
+    - relationship
+    - race
+    - sex
+    - native-country
+    - income
+    sha256: fa008efbb6448ba167448d7003784fe4fd20f990b765fc8ab7fe2b87fdb1ab9b
+  sha256_train_plus_test: 72cfbc9a88489ff2d54e03ebe4bf59a601be690cfb3a8e3e73dfa32eb082bce6
+preprocessor:
+  file: lab04/results/preprocessor.joblib
+  sha256: 168c3a36aa30806128d59b08f792a60cfcc5d9a9c72f1fffe19633ab68fbdbc7

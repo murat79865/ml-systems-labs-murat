@@ -1,0 +1,60 @@
+# Lab 4 pipeline configuration - every step reads its parameters from here.
+seed: 42
+
+dataset:
+  source: openml
+  name: adult
+  version: 2
+  expected_rows: 48842
+  expected_columns: 15
+  target_raw: class        # name of the label column in the OpenML frame
+  target: income           # name used in the schema / rest of the pipeline
+  positive_label: ">50K"
+
+schema:
+  null_token: "?"          # '?' means missing; allowed as a category value
+  types:
+    age: int
+    workclass: category
+    fnlwgt: int
+    education: category
+    education-num: int
+    marital-status: category
+    occupation: category
+    relationship: category
+    race: category
+    sex: category
+    capital-gain: int
+    capital-loss: int
+    hours-per-week: int
+    native-country: category
+    income: category
+  ranges:
+    age: [17, 90]
+    hours-per-week: [1, 99]
+    capital-gain: [0, 99999]
+    capital-loss: [0, 4356]
+
+split:
+  test_size: 0.30
+  stratify: income
+  random_state: 42
+
+cleaning:
+  numeric_impute: median
+  categorical_impute: most_frequent
+  clip_quantiles: [0.01, 0.99]
+  drop_exact_duplicates: train_only
+
+features:
+  derived:
+    capital_net: "capital-gain - capital-loss"
+    hours_per_age: "hours-per-week / (age - 16)"
+
+model:
+  type: LogisticRegression
+  max_iter: 1000
+  cv_folds: 5
+
+label_audit:
+  sample_size: 50

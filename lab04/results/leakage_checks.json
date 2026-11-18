@@ -1,0 +1,104 @@
+{
+  "all_pass": true,
+  "checks": [
+    {
+      "check": "split happens before cleaning",
+      "pass": true,
+      "detail": "train_test_split is called on the raw canonical table; no statistic exists before it"
+    },
+    {
+      "check": "train and test rows are disjoint",
+      "pass": true,
+      "detail": "34189 train / 14653 test row ids, overlap 0"
+    },
+    {
+      "check": "test split untouched (no rows dropped)",
+      "pass": true,
+      "detail": "14653 test rows before and after processing"
+    },
+    {
+      "check": "duplicates removed from train only",
+      "pass": true,
+      "detail": "24 removed from train, 0 from test (test keeps 5 exact duplicates)"
+    },
+    {
+      "check": "preprocessor fitted on train rows only",
+      "pass": true,
+      "detail": "cleaner saw 34165 rows = de-duplicated train size 34165"
+    },
+    {
+      "check": "numeric medians = train medians",
+      "pass": true,
+      "detail": {
+        "age": 37.0,
+        "fnlwgt": 178272.0,
+        "education-num": 10.0,
+        "capital-gain": 0.0,
+        "capital-loss": 0.0,
+        "hours-per-week": 40.0
+      }
+    },
+    {
+      "check": "categorical modes = train modes",
+      "pass": true,
+      "detail": {
+        "workclass": "Private",
+        "education": "HS-grad",
+        "marital-status": "Married-civ-spouse",
+        "occupation": "Prof-specialty",
+        "relationship": "Husband",
+        "race": "White",
+        "sex": "Male",
+        "native-country": "United-States"
+      }
+    },
+    {
+      "check": "clip bounds = train percentiles",
+      "pass": true,
+      "detail": {
+        "lower": {
+          "age": 17.0,
+          "fnlwgt": 27035.2,
+          "education-num": 3.0,
+          "capital-gain": 0.0,
+          "capital-loss": 0.0,
+          "hours-per-week": 8.0
+        },
+        "upper": {
+          "age": 74.0,
+          "fnlwgt": 509629.0,
+          "education-num": 16.0,
+          "capital-gain": 15024.0,
+          "capital-loss": 1980.0,
+          "hours-per-week": 80.0
+        }
+      }
+    },
+    {
+      "check": "contrast: bounds if test had leaked into fit",
+      "pass": true,
+      "detail": {
+        "columns_whose_bounds_would_change": [
+          "fnlwgt",
+          "capital-loss"
+        ],
+        "full_data_lower": {
+          "age": 17.0,
+          "fnlwgt": 27166.0,
+          "education-num": 3.0,
+          "capital-gain": 0.0,
+          "capital-loss": 0.0,
+          "hours-per-week": 8.0
+        },
+        "full_data_upper": {
+          "age": 74.0,
+          "fnlwgt": 509484.41999999987,
+          "education-num": 16.0,
+          "capital-gain": 15024.0,
+          "capital-loss": 2001.0,
+          "hours-per-week": 80.0
+        }
+      }
+    }
+  ]
+}
