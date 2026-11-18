@@ -1,0 +1,23 @@
+operation,layout,shape,is_contiguous,median_ms
+elementwise  y = v * 2 + 1,contiguous x,"(2048, 2048)",True,3.7443
+elementwise  y = v * 2 + 1,non-contiguous x.t(),"(2048, 2048)",False,3.9354
+elementwise  y = v * 2 + 1,x.t().contiguous(),"(2048, 2048)",True,4.1467
+elementwise  y = v * 2 + 1,"strided x[:, ::2]","(2048, 1024)",False,2.8186
+elementwise  y = v * 2 + 1,"x[:, ::2].contiguous()","(2048, 1024)",True,2.3041
+row reduction  v.sum(dim=1),contiguous x,"(2048, 2048)",True,0.8339
+row reduction  v.sum(dim=1),non-contiguous x.t(),"(2048, 2048)",False,2.5530
+row reduction  v.sum(dim=1),x.t().contiguous(),"(2048, 2048)",True,0.8056
+row reduction  v.sum(dim=1),"strided x[:, ::2]","(2048, 1024)",False,0.5378
+row reduction  v.sum(dim=1),"x[:, ::2].contiguous()","(2048, 1024)",True,0.3190
+matmul  v @ w,contiguous x,"(2048, 2048)",True,49.7790
+matmul  v @ w,non-contiguous x.t(),"(2048, 2048)",False,51.1738
+matmul  v @ w,x.t().contiguous(),"(2048, 2048)",True,51.9844
+matmul  v @ w,"strided x[:, ::2]","(2048, 1024)",False,27.8474
+matmul  v @ w,"x[:, ::2].contiguous()","(2048, 1024)",True,26.7757
+view to 1-D  v.reshape(-1),contiguous x,"(2048, 2048)",True,0.0030
+view to 1-D  v.reshape(-1),non-contiguous x.t(),"(2048, 2048)",False,7.6518
+view to 1-D  v.reshape(-1),x.t().contiguous(),"(2048, 2048)",True,0.0027
+view to 1-D  v.reshape(-1),"strided x[:, ::2]","(2048, 1024)",False,0.0033
+view to 1-D  v.reshape(-1),"x[:, ::2].contiguous()","(2048, 1024)",True,0.0026
+make contiguous copy,x.t().contiguous() copy itself,"(2048, 2048)",False,6.8227
+make contiguous copy,"x[:, ::2].contiguous() copy itself","(2048, 1024)",False,1.1296

@@ -1,0 +1,53 @@
+{
+  "expression": "((a*b + c)**2).relu().sum()",
+  "n_elements": 5,
+  "loss_engine": 6.458051229816548,
+  "loss_torch": 6.458051229816547,
+  "loss_abs_diff": 8.881784197001252e-16,
+  "max_abs_diff_engine_vs_torch": 0.0,
+  "max_abs_diff_engine_vs_numerical": 6.717959522006822e-10,
+  "tolerance": 1e-06,
+  "pass": true,
+  "graph": {
+    "nodes": 41,
+    "edges": 40,
+    "ops": {
+      "leaf": 16,
+      "*": 5,
+      "+": 10,
+      "**2": 5,
+      "relu": 5
+    }
+  },
+  "extra_tests": [
+    {
+      "test": "accumulation: y = x*x + x at x=3",
+      "engine": 7.0,
+      "expected": 7.0,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "test": "relu negative branch: d relu(-2z)/dz at z=1.5",
+      "engine": 0.0,
+      "expected": 0.0,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "test": "all operations (+, *, **, relu, exp, log, sigmoid, -, /) vs PyTorch",
+      "engine": [
+        2.5602849836403085,
+        -4.671670873719478,
+        20.708904798990755
+      ],
+      "expected": [
+        2.560284983640308,
+        -4.671670873719478,
+        20.708904798990755
+      ],
+      "abs_diff": 4.440892098500626e-16,
+      "pass": true
+    }
+  ]
+}

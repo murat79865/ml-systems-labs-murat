@@ -1,0 +1,9 @@
+model,input_shape,variant,median_ms,p95_ms,speedup_vs_eager,runs,warmup,max_abs_output_diff_vs_eager
+tiny 2-8-1 (batch 200),"(200, 2)",eager,0.03360,0.03440,1.000,100,10,0.00e+00
+tiny 2-8-1 (batch 200),"(200, 2)",torch.compile,0.03870,0.05390,0.868,100,10,0.00e+00
+tiny 2-8-1 (batch 200),"(200, 2)",torch.jit.trace,0.03050,0.05280,1.102,100,10,0.00e+00
+tiny 2-8-1 (batch 200),"(200, 2)",torch.jit.script,0.02760,0.04050,1.217,100,10,0.00e+00
+wide 256-1024-1024-10 (batch 64),"(64, 256)",eager,0.99610,1.30260,1.000,100,10,0.00e+00
+wide 256-1024-1024-10 (batch 64),"(64, 256)",torch.compile,0.96205,1.04520,1.035,100,10,0.00e+00
+wide 256-1024-1024-10 (batch 64),"(64, 256)",torch.jit.trace,0.93660,1.08060,1.064,100,10,0.00e+00
+wide 256-1024-1024-10 (batch 64),"(64, 256)",torch.jit.script,0.93680,1.05940,1.063,100,10,0.00e+00

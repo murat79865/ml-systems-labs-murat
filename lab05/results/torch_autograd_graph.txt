@@ -1,0 +1,14 @@
+Autograd graph recorded during ONE eager forward pass (root = loss, children = inputs of each op)
+
+BinaryCrossEntropyBackward0
+  SqueezeBackward1
+    SigmoidBackward0
+      AddmmBackward0
+        AccumulateGrad  <- leaf parameter (1,) float32
+        ReluBackward0
+          AddmmBackward0
+            AccumulateGrad  <- leaf parameter (8,) float32
+            TBackward0
+              AccumulateGrad  <- leaf parameter (8, 2) float32
+        TBackward0
+          AccumulateGrad  <- leaf parameter (1, 8) float32

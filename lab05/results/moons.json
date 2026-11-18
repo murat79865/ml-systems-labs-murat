@@ -1,0 +1,16 @@
+{
+  "dataset": "make_moons(n_samples=200, noise=0.1, random_state=42)",
+  "architecture": "2 -> 8 (ReLU) -> 1 (sigmoid), BCE loss",
+  "optimizer": "full-batch gradient descent, lr 2.0, 100 epochs, float64",
+  "parameters": 33,
+  "final_loss_engine": 0.09461686548372898,
+  "final_loss_torch": 0.09461686548372894,
+  "train_accuracy_engine": 0.975,
+  "train_accuracy_torch": 0.975,
+  "max_abs_loss_diff_over_epochs": 2.0539125955565396e-15,
+  "max_abs_param_diff_final": 8.881784197001252e-16,
+  "median_s_engine": 14.27388539997628,
+  "median_s_torch": 0.02544649998890236,
+  "speedup_torch_over_engine": 560.9370799992673,
+  "graph_nodes_per_epoch": 17436
+}

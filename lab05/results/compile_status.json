@@ -1,0 +1,20 @@
+{
+  "torch_version": "2.3.1+cpu",
+  "graph": {
+    "autograd_nodes": 12,
+    "fx_nodes": 6,
+    "jit_graph_lines": 11
+  },
+  "variants": {
+    "tiny 2-8-1 (batch 200)": {
+      "torch.compile": "ok",
+      "torch.jit.trace": "ok",
+      "torch.jit.script": "ok"
+    },
+    "wide 256-1024-1024-10 (batch 64)": {
+      "torch.compile": "ok",
+      "torch.jit.trace": "ok",
+      "torch.jit.script": "ok"
+    }
+  }
+}

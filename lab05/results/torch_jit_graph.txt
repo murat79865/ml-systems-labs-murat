@@ -1,0 +1,13 @@
+torch.jit.trace(model, example_input).graph
+
+graph(%self.1 : __torch__.torch.nn.modules.container.Sequential,
+      %input.1 : Float(200, 2, strides=[2, 1], requires_grad=0, device=cpu)):
+  %_3 : __torch__.torch.nn.modules.activation.Sigmoid = prim::GetAttr[name="3"](%self.1)
+  %_2 : __torch__.torch.nn.modules.linear.___torch_mangle_0.Linear = prim::GetAttr[name="2"](%self.1)
+  %_1 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="1"](%self.1)
+  %_0 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="0"](%self.1)
+  %40 : Tensor = prim::CallMethod[name="forward"](%_0, %input.1)
+  %41 : Tensor = prim::CallMethod[name="forward"](%_1, %40)
+  %42 : Tensor = prim::CallMethod[name="forward"](%_2, %41)
+  %43 : Tensor = prim::CallMethod[name="forward"](%_3, %42)
+  return (%43)
